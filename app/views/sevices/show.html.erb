@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @sevice.name %>
+</p>
+
+<p>
+  <strong>Cost:</strong>
+  <%= @sevice.cost %>
+</p>
+
+<p>
+  <strong>Time:</strong>
+  <%= @sevice.time %>
+</p>
+
+<%= link_to 'Edit', edit_sevice_path(@sevice) %> |
+<%= link_to 'Back', sevices_path %>

@@ -1,0 +1,2 @@
+class Sevice < ApplicationRecord
+end

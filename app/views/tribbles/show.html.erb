@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Spaceship:</strong>
+  <%= @tribble.spaceship %>
+</p>
+
+<p>
+  <strong>Colour:</strong>
+  <%= @tribble.colour %>
+</p>
+
+<p>
+  <strong>Quantity:</strong>
+  <%= @tribble.quantity %>
+</p>
+
+<%= link_to 'Edit', edit_tribble_path(@tribble) %> |
+<%= link_to 'Back', tribbles_path %>

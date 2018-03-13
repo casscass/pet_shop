@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :tribbles
+  resources :sevices
     resources :products, :destroy 
   # resources :stores
    #get 'store/index'

@@ -1,2 +1,0 @@
-class Tribble < ApplicationRecord
-end

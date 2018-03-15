@@ -1,7 +1,15 @@
 Rails.application.routes.draw do
-  resources :tribbles
-  resources :sevices
-    resources :products, :destroy 
+  resources :products
+
+  resources :customers do
+    resources :orders, only: [ :index, :new, :create ]
+  end
+  
+  resources :orders, except: [ :index, :new, :create ]
+    # resources :tribbles
+    # resources :sevices
+    # resources :products, :destroy 
+  
   # resources :stores
    #get 'store/index'
 

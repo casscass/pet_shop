@@ -4,12 +4,51 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    @products = Product.all
+    
+    # attemp 1
+    # if params[:sku] & params[:price] then
+    #   @products = Product.where(sku: params[:sku]) & @products = Product.where "price > ?", params[:price]
+    # -------------------------
+    # attemp 2
+    
+    # if params[:sku] && params[:price] then
+    # @products = Product.where(sku: params[:sku])
+    # @products = Product.where "price > ?", params[:price]
+     # -------------------------
+    # attemp 3
+    # when params = [:sku && :price] do 
+    #   @products = Product.where(sku: params[:sku]) && @products = Product.where "price > ?", params[:price]
+      
+     # -------------------------
+    # attemp 4
+    #  if params[:sku] && params[:price] then
+    # select * from products where @products = Product.where(sku: params[:sku])&& @products = Product.where "price > ?", params[:price] 
+ # -------------------------
+    # attemp 5 WORKSSSSSS SUK AND PRICE
+    if params[:sku] && params[:price] then
+       @products = Product.where(["sku =? or price >?", params[:sku], params[:price]])
+    
+      #TRYING TO GET ALL THREE TO WORK
+      # if params[:sku] && params[:price] && params[:name] then
+      #   @products = Product.where(["sku =? or price >? or name =?",  params[:sku], %{params[:name]}%, params[:price]])
+    # -------------------------
+    # ORIGINAL CODE
+    # if params[:sku] then
+    #   @products = Product.where(sku: params[:sku])
+    # elsif params[:price] then
+    #   @products = Product.where "price > ?", params[:price]
+    # elsif params[:name] then
+    #   @products = Product.where "name like ?",  "%#{params[:name]}%"
+    #   # select * from products where name %ood;
+    else
+        @products = Product.all
+    end
   end
 
   # GET /products/1
   # GET /products/1.json
   def show
+    @product = Product.find(params[:id])
   end
 
   # GET /products/new
